@@ -54,7 +54,7 @@ th {
     background-color: #4CAF50;
     width: 0%;
     text-align: center;
-    color: white;
+    color: black; /* Diese Zeile hinzufügen, um die Textfarbe zu ändern */
     line-height: 30px;
 }
 
