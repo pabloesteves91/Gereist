@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ich bin gereist</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <h1>Ich bin gereist</h1>
+    <div class="container">
+        <label for="country">Land auswählen:</label>
+        <select id="country"></select>
+
+        <label for="visit-date">Datum auswählen:</label>
+        <input type="date" id="visit-date">
+
+        <button onclick="addVisit()">Hinzufügen</button>
+
+        <h2>Besuchte Länder</h2>
+        <table id="visited-countries">
+            <thead>
+                <tr>
+                    <th>Land</th>
+                    <th>Datum</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <h2>Kontinent Fortschritt</h2>
+        <div id="progress-bar">
+            <div id="progress"></div>
+        </div>
+
+        <button onclick="saveData()">Daten speichern</button>
+        <input type="file" id="file-input" accept=".travel" onchange="loadData()">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
