@@ -1,6 +1,6 @@
 const countries = [
     "Afghanistan", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Argentinien", "Armenien", "Australien", "Österreich",
-    // (Füge hier alle anderen Länder hinzu)
+    // Füge hier alle anderen Länder hinzu
     "Deutschland", "Schweiz", "Frankreich", "Italien", "Spanien", "USA", "Kanada"
 ];
 
@@ -10,7 +10,8 @@ const continents = {
     "Europa": ["Deutschland", "Frankreich", "Italien", "Spanien", "Schweiz"],
     "Nordamerika": ["Kanada", "Mexiko", "USA"],
     "Südamerika": ["Argentinien", "Brasilien", "Chile"],
-    "Ozeanien": ["Australien", "Neuseeland"]
+    "Australien": ["Australien", "Neuseeland"],
+    "Antarktis": ["Antarktis"]
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,13 +54,31 @@ function updateProgress() {
         continentCounts[continent] = continents[continent].filter(country => visitedCountries.includes(country)).length;
     }
 
-    const totalContinents = Object.keys(continents).length;
-    const visitedContinents = Object.values(continentCounts).filter(count => count > 0).length;
-    const percentage = (visitedContinents / totalContinents) * 100;
+    const totalCountriesPerContinent = {
+        "Afrika": continents["Afrika"].length,
+        "Asien": continents["Asien"].length,
+        "Europa": continents["Europa"].length,
+        "Nordamerika": continents["Nordamerika"].length,
+        "Südamerika": continents["Südamerika"].length,
+        "Australien": continents["Australien"].length,
+        "Antarktis": continents["Antarktis"].length
+    };
 
-    const progressBar = document.getElementById('progress');
-    progressBar.style.width = `${percentage}%`;
-    progressBar.textContent = `${Math.round(percentage)}%`;
+    const progressElements = {
+        "Afrika": document.getElementById('progress-africa'),
+        "Asien": document.getElementById('progress-asia'),
+        "Europa": document.getElementById('progress-europe'),
+        "Nordamerika": document.getElementById('progress-north-america'),
+        "Südamerika": document.getElementById('progress-south-america'),
+        "Australien": document.getElementById('progress-australia'),
+        "Antarktis": document.getElementById('progress-antarctica')
+    };
+
+    for (const continent in continentCounts) {
+        const percentage = (continentCounts[continent] / totalCountriesPerContinent[continent]) * 100;
+        progressElements[continent].style.width = `${percentage}%`;
+        progressElements[continent].textContent = `${Math.round(percentage)}%`;
+    }
 }
 
 function saveData() {
