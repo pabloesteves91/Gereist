@@ -37,15 +37,19 @@ th {
     color: white;
 }
 
-#progress-bar {
+#progress-container {
+    margin-top: 20px;
+}
+
+.progress-bar {
     width: 100%;
     background-color: #f3f3f3;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     overflow: hidden;
 }
 
-#progress {
+.progress-bar > div {
     height: 30px;
     background-color: #4CAF50;
     width: 0%;
@@ -61,7 +65,6 @@ button {
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
 }
 
 button:hover {
