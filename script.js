@@ -31,6 +31,7 @@ const continents = {
     "Antarktis": ["Antarktis"]
 };
 
+let visitedCount = 0;
 document.addEventListener('DOMContentLoaded', () => {
     const countrySelect = document.getElementById('country');
     countries.forEach(country => {
@@ -39,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         option.textContent = country;
         countrySelect.appendChild(option);
     });
+
+    document.getElementById('visited-count').textContent = visitedCount;
 });
 
 function addVisit() {
@@ -58,6 +61,9 @@ function addVisit() {
     const cellDate = row.insertCell(1);
     cellCountry.textContent = country;
     cellDate.textContent = date;
+
+    visitedCount++;
+    document.getElementById('visited-count').textContent = visitedCount;
 
     updateProgress();
 }
@@ -94,7 +100,7 @@ function updateProgress() {
     for (const continent in continentCounts) {
         const percentage = (continentCounts[continent] / totalCountriesPerContinent[continent]) * 100;
         progressElements[continent].style.width = `${percentage}%`;
-        progressElements[continent].textContent = `${Math.round(percentage)}%`;
+        progressElements[continent].textContent = `${Math.round(percentage)}% (${continentCounts[continent]} von ${totalCountriesPerContinent[continent]})`;
     }
 }
 
@@ -128,6 +134,9 @@ function loadData() {
                 cellCountry.textContent = visit.country;
                 cellDate.textContent = visit.date;
             });
+
+            visitedCount = visits.length;
+            document.getElementById('visited-count').textContent = visitedCount;
             updateProgress();
         };
         reader.readAsText(file);
