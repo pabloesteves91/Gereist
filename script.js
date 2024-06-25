@@ -1,16 +1,33 @@
 const countries = [
     "Afghanistan", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Argentinien", "Armenien", "Australien", "Österreich",
-    // Füge hier alle anderen Länder hinzu
-    "Deutschland", "Schweiz", "Frankreich", "Italien", "Spanien", "USA", "Kanada"
+    "Aserbaidschan", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belarus", "Belgien", "Belize", "Benin", "Bhutan",
+    "Bolivien", "Bosnien und Herzegowina", "Botswana", "Brasilien", "Brunei", "Bulgarien", "Burkina Faso", "Burundi", "Kambodscha", "Kamerun",
+    "Kanada", "Kap Verde", "Zentralafrikanische Republik", "Tschad", "Chile", "China", "Kolumbien", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik",
+    "Costa Rica", "Kroatien", "Kuba", "Zypern", "Tschechien", "Dänemark", "Dschibuti", "Dominica", "Dominikanische Republik", "Osttimor",
+    "Ecuador", "Ägypten", "El Salvador", "Äquatorialguinea", "Eritrea", "Estland", "Eswatini", "Äthiopien", "Fidschi", "Finnland",
+    "Frankreich", "Gabun", "Gambia", "Georgien", "Deutschland", "Ghana", "Griechenland", "Grenada", "Guatemala", "Guinea",
+    "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Ungarn", "Island", "Indien", "Indonesien", "Iran", "Irak",
+    "Irland", "Israel", "Italien", "Elfenbeinküste", "Jamaika", "Japan", "Jordanien", "Kasachstan", "Kenia", "Kiribati",
+    "Kuwait", "Kirgisistan", "Laos", "Lettland", "Libanon", "Lesotho", "Liberia", "Libyen", "Liechtenstein", "Litauen",
+    "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marshallinseln", "Mauretanien", "Mauritius",
+    "Mexiko", "Mikronesien", "Moldawien", "Monaco", "Mongolei", "Montenegro", "Marokko", "Mosambik", "Myanmar", "Namibia",
+    "Nauru", "Nepal", "Niederlande", "Neuseeland", "Nicaragua", "Niger", "Nigeria", "Nordkorea", "Nordmazedonien", "Norwegen",
+    "Oman", "Pakistan", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal",
+    "Katar", "Rumänien", "Russland", "Ruanda", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Samoa", "San Marino", "Sao Tome und Principe",
+    "Saudi-Arabien", "Senegal", "Serbien", "Seychellen", "Sierra Leone", "Singapur", "Slowakei", "Slowenien", "Salomonen", "Somalia",
+    "Südafrika", "Südkorea", "Südsudan", "Spanien", "Sri Lanka", "Sudan", "Surinam", "Schweden", "Schweiz", "Syrien",
+    "Taiwan", "Tadschikistan", "Tansania", "Thailand", "Togo", "Tonga", "Trinidad und Tobago", "Tunesien", "Türkei", "Turkmenistan",
+    "Tuvalu", "Uganda", "Ukraine", "Vereinigte Arabische Emirate", "Vereinigtes Königreich", "USA", "Uruguay", "Usbekistan", "Vanuatu", "Venezuela",
+    "Vietnam", "Jemen", "Sambia", "Simbabwe"
 ];
 
 const continents = {
-    "Afrika": ["Algerien", "Angola", "Ägypten", "Kamerun", "Südafrika"],
-    "Asien": ["China", "Indien", "Japan", "Russland", "Vietnam"],
-    "Europa": ["Deutschland", "Frankreich", "Italien", "Spanien", "Schweiz"],
-    "Nordamerika": ["Kanada", "Mexiko", "USA"],
-    "Südamerika": ["Argentinien", "Brasilien", "Chile"],
-    "Australien": ["Australien", "Neuseeland"],
+    "Afrika": ["Algerien", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Kap Verde", "Zentralafrikanische Republik", "Tschad", "Komoren", "Kongo, Demokratische Republik", "Kongo, Republik", "Dschibuti", "Ägypten", "Äquatorialguinea", "Eritrea", "Eswatini", "Äthiopien", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Elfenbeinküste", "Kamerun", "Lesotho", "Liberia", "Libyen", "Madagaskar", "Malawi", "Mali", "Mauretanien", "Mauritius", "Mosambik", "Namibia", "Niger", "Nigeria", "Ruanda", "Sao Tome und Principe", "Senegal", "Seychellen", "Sierra Leone", "Simbabwe", "Somalia", "Südafrika", "Sudan", "Südsudan", "Tansania", "Togo", "Tunesien", "Uganda", "Sambia"],
+    "Asien": ["Afghanistan", "Armenien", "Aserbaidschan", "Bahrain", "Bangladesch", "Bhutan", "Brunei", "Myanmar", "Kambodscha", "China", "Georgien", "Indien", "Indonesien", "Iran", "Irak", "Israel", "Japan", "Jordanien", "Kasachstan", "Kuwait", "Kirgisistan", "Laos", "Libanon", "Malaysia", "Malediven", "Mongolei", "Nepal", "Nordkorea", "Oman", "Pakistan", "Palau", "Philippinen", "Katar", "Russland", "Saudi-Arabien", "Singapur", "Südkorea", "Sri Lanka", "Syrien", "Tadschikistan", "Taiwan", "Thailand", "Timor-Leste", "Türkei", "Turkmenistan", "Vereinigte Arabische Emirate", "Usbekistan", "Vietnam", "Jemen"],
+    "Europa": ["Albanien", "Andorra", "Österreich", "Belarus", "Belgien", "Bosnien und Herzegowina", "Bulgarien", "Kroatien", "Zypern", "Tschechien", "Dänemark", "Estland", "Finnland", "Frankreich", "Deutschland", "Griechenland", "Ungarn", "Island", "Irland", "Italien", "Lettland", "Liechtenstein", "Litauen", "Luxemburg", "Malta", "Moldawien", "Monaco", "Montenegro", "Niederlande", "Nordmazedonien", "Norwegen", "Polen", "Portugal", "Rumänien", "San Marino", "Serbien", "Slowakei", "Slowenien", "Spanien", "Schweden", "Schweiz", "Ukraine", "Vereinigtes Königreich"],
+    "Nordamerika": ["Antigua und Barbuda", "Bahamas", "Barbados", "Belize", "Kanada", "Costa Rica", "Kuba", "Dominica", "Dominikanische Republik", "El Salvador", "Grenada", "Guatemala", "Haiti", "Honduras", "Jamaika", "Mexiko", "Nicaragua", "Panama", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Trinidad und Tobago", "USA"],
+    "Südamerika": ["Argentinien", "Bolivien", "Brasilien", "Chile", "Kolumbien", "Ecuador", "Guyana", "Paraguay", "Peru", "Surinam", "Uruguay", "Venezuela"],
+    "Australien": ["Australien", "Fidschi", "Kiribati", "Marshallinseln", "Mikronesien", "Nauru", "Neuseeland", "Palau", "Papua-Neuguinea", "Samoa", "Salomonen", "Tonga", "Tuvalu", "Vanuatu"],
     "Antarktis": ["Antarktis"]
 };
 
